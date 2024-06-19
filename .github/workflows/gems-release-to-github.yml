@@ -47,7 +47,7 @@ jobs:
     name: Release gems to pkg.github.com
     runs-on: ubuntu-latest
     needs:
-      - ci
+      - release-pkg-gems
 
     steps:
       - uses: actions/checkout@v4

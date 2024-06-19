@@ -11,9 +11,6 @@ jobs:
     name: Release gems to pkg.github.com
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
-
     steps:
       - uses: actions/checkout@v4
       - uses: jstastny/publish-gem-to-github@v2

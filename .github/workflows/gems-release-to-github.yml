@@ -1,0 +1,22 @@
+name: Gems - Release to GitHub Packages
+on: # yamllint disable-line rule:truthy
+  release:
+    # It's fine to trigger on every release because if we tag a release w/o
+    # bumping the Gem version, RubyGems will reject it with an error that the
+    # version is already live.
+    types: [published]
+
+jobs:
+  release-gems:
+    name: Release gems to pkg.github.com
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jstastny/publish-gem-to-github@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          owner: ${{ github.repository_owner }}

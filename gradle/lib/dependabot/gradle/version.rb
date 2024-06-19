@@ -31,7 +31,13 @@ module Dependabot
         "[0-9a-zA-Z]+" \
         '(?>\.[0-9a-zA-Z]*)*' \
         '([_\-\+][0-9A-Za-z_-]*(\.[0-9A-Za-z_-]*)*)?'
-      ANCHORED_VERSION_PATTERN = /\A\s*(#{VERSION_PATTERN})?\s*\z/
+      RANGE_VERSION_PATTERN =
+        '(\[|\()\s*'\
+          '([0-9a-zA-Z]+(?>\.[0-9a-zA-Z]*)*)?'\
+          '\s*,\s*'\
+          '([0-9a-zA-Z]+(?>\.[0-9a-zA-Z]*)*)?'\
+          '\s*(\]|\))\s*'
+      ANCHORED_VERSION_PATTERN = /\A\s*(#{VERSION_PATTERN}|#{RANGE_VERSION_PATTERN})?\s*\z/
 
       def self.correct?(version)
         return false if version.nil?

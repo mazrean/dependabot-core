@@ -17,7 +17,8 @@ Gem::Specification.new do |spec|
   spec.license     = "MIT"
 
   spec.metadata = {
-    "bug_tracker_uri" => "https://github.com/dependabot/dependabot-core/issues"
+    "bug_tracker_uri" => "https://github.com/dependabot/dependabot-core/issues",
+    "allowed_push_host" => "https://rubygems.pkg.github.com/mazrean"
   }
 
   spec.version = "0.95.1"

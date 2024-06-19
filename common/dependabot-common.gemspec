@@ -16,7 +16,8 @@ Gem::Specification.new do |spec|
 
   spec.metadata = {
     "bug_tracker_uri" => "https://github.com/mazrean/dependabot-core/issues",
-    "changelog_uri" => "https://github.com/mazrean/dependabot-core/releases/tag/v#{Dependabot::VERSION}"
+    "changelog_uri" => "https://github.com/mazrean/dependabot-core/releases/tag/v#{Dependabot::VERSION}",
+    "allowed_push_host" => "https://rubygems.pkg.github.com/mazrean"
   }
 
   spec.version = Dependabot::VERSION

@@ -35,6 +35,7 @@ GEMSPECS = %w(
   swift/dependabot-swift.gemspec
   devcontainers/dependabot-devcontainers.gemspec
 ).freeze
+GEM_HOST_NAME = "https://rubygems.pkg.github.com/mazrean"
 
 def run_command(command)
   puts "> #{command}"
@@ -75,7 +76,7 @@ namespace :gems do
           attempts += 1
           sleep(2)
           begin
-            sh "gem push #{gem_path}"
+            sh "gem push --key github --host https://rubygems.pkg.github.com/mazrean #{gem_path}"
             break
           rescue StandardError => e
             puts "! `gem push` failed with error: #{e}"

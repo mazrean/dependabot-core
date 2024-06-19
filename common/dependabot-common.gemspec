@@ -11,12 +11,12 @@ Gem::Specification.new do |spec|
 
   spec.author       = "Dependabot"
   spec.email        = "opensource@github.com"
-  spec.homepage     = "https://github.com/dependabot/dependabot-core"
+  spec.homepage     = "https://github.com/mazrean/dependabot-core"
   spec.license      = "MIT"
 
   spec.metadata = {
-    "bug_tracker_uri" => "https://github.com/dependabot/dependabot-core/issues",
-    "changelog_uri" => "https://github.com/dependabot/dependabot-core/releases/tag/v#{Dependabot::VERSION}"
+    "bug_tracker_uri" => "https://github.com/mazrean/dependabot-core/issues",
+    "changelog_uri" => "https://github.com/mazrean/dependabot-core/releases/tag/v#{Dependabot::VERSION}"
   }
 
   spec.version = Dependabot::VERSION

@@ -68,20 +68,15 @@ namespace :gems do
 
       attempts = 0
       loop do
-        if rubygems_release_exists?(gem_name, Dependabot::VERSION)
-          puts "- Skipping #{gem_path} as it already exists on rubygems"
+        puts "> Releasing #{gem_path}"
+        attempts += 1
+        sleep(2)
+        begin
+          sh "gem push --key github --host https://rubygems.pkg.github.com/mazrean #{gem_path}"
           break
-        else
-          puts "> Releasing #{gem_path}"
-          attempts += 1
-          sleep(2)
-          begin
-            sh "gem push --key github --host https://rubygems.pkg.github.com/mazrean #{gem_path}"
-            break
-          rescue StandardError => e
-            puts "! `gem push` failed with error: #{e}"
-            raise if attempts >= 3
-          end
+        rescue StandardError => e
+          puts "! `gem push` failed with error: #{e}"
+          raise if attempts >= 3
         end
       end
     end

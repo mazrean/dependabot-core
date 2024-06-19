@@ -20,3 +20,5 @@ jobs:
           echo ":github: Bearer ${GITHUB_TOKEN}" >> ~/.gem/credentials
           chmod 0600 ~/.gem/credentials
           gem install rake && rake gems:release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

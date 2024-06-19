@@ -10,8 +10,6 @@ jobs:
   release-gems:
     name: Release gems to pkg.github.com
     runs-on: ubuntu-latest
-    needs:
-      - release-pkg-gems
 
     steps:
       - uses: actions/checkout@v4

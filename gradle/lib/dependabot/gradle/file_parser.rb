@@ -232,7 +232,6 @@ module Dependabot
             name = line.match(name_regex)&.named_captures&.fetch("id")
             version_regex = /version\s+(?<version>['"]?#{VSN_PART}['"]?)/o
             version = format_plugin_version(line.match(version_regex)&.named_captures&.fetch("version"))
-            puts("name:#{name}, version:#{version}")
             next unless name && version
 
             details = { name: name, group: "plugins", extra_groups: extra_groups(line), version: version }

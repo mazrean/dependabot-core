@@ -34,7 +34,7 @@ module Dependabot
         /x
 
       PART = %r{[^\s,@'":/\\]+}
-      VSN_PART = %r{[^\s,'":/\\]+}
+      VSN_PART = %r{[^\s'":/\\]+}
       DEPENDENCY_DECLARATION_REGEX = /(?:\(|\s)\s*['"](?<declaration>#{PART}:#{PART}:#{VSN_PART})['"]/
 
       DEPENDENCY_SET_DECLARATION_REGEX = /(?:^|\s)dependencySet\((?<arguments>[^\)]+)\)\s*\{/
@@ -232,7 +232,7 @@ module Dependabot
             name = line.match(name_regex)&.named_captures&.fetch("id")
             version_regex = /version\s+(?<version>['"]?#{VSN_PART}['"]?)/o
             version = format_plugin_version(line.match(version_regex)&.named_captures&.fetch("version"))
-            puts("name:#{name}, version#{version}")
+            puts("name:#{name}, version:#{version}")
             next unless name && version
 
             details = { name: name, group: "plugins", extra_groups: extra_groups(line), version: version }
